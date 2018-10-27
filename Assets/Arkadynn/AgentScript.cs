@@ -7,13 +7,36 @@ public class AgentScript : MonoBehaviour {
 
     private NavMeshAgent agent;
 
-	// Use this for initialization
-	void Start () {
+    public Vector3 defaultTarget = new Vector3(1, 0, -0.5f);
+
+    private bool yummyFood = false;
+    private Transform yummyPosition;
+
+
+    // Use this for initialization
+    void Start () {
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(new Vector3(0, -9.5f, 0));
     }
 	
 	// Update is called once per frame
 	void Update () {
-	}
+        if (!yummyFood)
+            agent.SetDestination(new Vector3(1, 0, -0.5f));
+
+        if (yummyFood && yummyPosition == null) {
+            yummyFood = false;
+        }
+
+        if (yummyFood && yummyPosition != null) {
+            agent.SetDestination(new Vector3(yummyPosition.position.x, 0, yummyPosition.position.z));
+        }
+    }
+
+    public void NotifyYummy (Transform target) {
+        if (yummyFood)
+            return;
+
+        yummyFood = true;
+        yummyPosition = target;
+    }
 }
