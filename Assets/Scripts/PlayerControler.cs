@@ -71,28 +71,22 @@ public class PlayerControler : MonoBehaviour
     private bool isTriggerFire;
 
     /// <summary>
-    /// The class for set-up the pad
+    /// Singleton
     /// </summary>
-    /// <param name="padNumber">The pad number</param>
-    public PlayerControler SetUp(int padNumber)
+    private PlayerControler instance;
+
+    void Start()
     {
-        if (padNumber < 0 || padNumber > 4)
+        if (instance == null)
         {
-            throw new Exception("PadNumber must be between 1 and 4");
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        //The root component must not be keep
-        PlayerSprite = GetComponentsInChildren<Transform>()[1];
-
-        //Define control strings
-        leftStickX += padNumber;
-        leftStickY += padNumber;
-        rightStickX += padNumber;
-        rightStickY += padNumber;
-        aButton += padNumber;
-        bButton += padNumber;
-
-        return this;
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
     }
 
     // Update is called once per frame
@@ -105,7 +99,7 @@ public class PlayerControler : MonoBehaviour
         {
             //Get movment input
             x = Input.GetAxis("Horizontal");
-            y = Input.GetAxis("Vertical");            
+            y = Input.GetAxis("Vertical");
         }
         else
         {
@@ -154,6 +148,38 @@ public class PlayerControler : MonoBehaviour
             Gun.gameObject.GetComponent<GunController>().Fire();
             isTriggerFire = false;
         }
+    }
+
+    /// <summary>
+    /// The class for set-up the pad
+    /// </summary>
+    /// <param name="padNumber">The pad number</param>
+    public PlayerControler SetUp(int padNumber)
+    {
+        if (padNumber < 0 || padNumber > 4)
+        {
+            throw new Exception("PadNumber must be between 0 and 4");
+        }
+
+        //The root component must not be keep
+        PlayerSprite = GetComponentsInChildren<Transform>()[1];
+
+        if (padNumber == 0)
+        {
+            isKeyboard = true;
+        }
+        else
+        {
+            //Define control strings
+            leftStickX += padNumber;
+            leftStickY += padNumber;
+            rightStickX += padNumber;
+            rightStickY += padNumber;
+            aButton += padNumber;
+            bButton += padNumber;
+        }
+
+        return this;
     }
 
     /// <summary>

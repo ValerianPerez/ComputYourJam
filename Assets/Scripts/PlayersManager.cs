@@ -2,23 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayersManager : MonoBehaviour {
+public class PlayersManager : MonoBehaviour
+{
 
-    private List<PlayerControler> players;
+    /// <summary>
+    /// The player prefab
+    /// </summary>
+    public GameObject player;
 
-	// Use this for initialization
-	void Start () {
-        GameObject[] p = GameObject.FindGameObjectsWithTag("Player");
-        players = new List<PlayerControler>();
+    /// <summary>
+    /// The instance for singleton design pattern
+    /// </summary>
+    private static PlayersManager instance = null;
 
-        for (int i = 0; i < p.Length; i++)
+    /// <summary>
+    /// The order of player for instanciation
+    /// </summary>
+    private List<int> orderOfPlayer;
+
+    // Use this for initialization
+    void Start()
+    {
+        if (instance == null)
         {
-            players.Add(p[i].GetComponent<PlayerControler>().SetUp(i+1));
+            Debug.Log("first");
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        else if (instance != this)
+        {
+            Debug.Log("reject");
+            Destroy(this.gameObject);
+            return;
+        }
+
+        foreach (var item in orderOfPlayer)
+        {
+            Instantiate(player).GetComponent<PlayerControler>().SetUp(item);
+        }
+    }
+
+    /// <summary>
+    /// Define the order of player
+    /// </summary>
+    public void SetOrderOfPlayer(List<int> order)
+    {
+        orderOfPlayer = order;
+    }
 }

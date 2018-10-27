@@ -349,6 +349,46 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114743881011835488, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_Text
+      value: "Press          or      \nto start"
+      objectReference: {fileID: 0}
+    - target: {fileID: 224034832692975830, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 69.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 114743881011835488, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224034832692975830, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224092631447631180, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224092631447631180, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 19.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568212797386108, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 102.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568212797386108, guid: c0bb1462cfe1b494d89fe17383878426,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 19.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0bb1462cfe1b494d89fe17383878426, type: 2}
   m_IsPrefabAsset: 0
@@ -387,6 +427,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxNumberOfPlayer: 4
   canvas: {fileID: 1894775377}
+  PlayersManager: {fileID: 1976556954344032, guid: 899abfd352764cd44a9b5028cf8b4b75,
+    type: 2}
+  Player: {fileID: 1547433433576484, guid: 6f323a96dc821ed4db85cf4a480da3f2, type: 2}
 --- !u!4 &1909514285
 Transform:
   m_ObjectHideFlags: 0

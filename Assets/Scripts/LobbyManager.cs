@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -13,6 +14,16 @@ public class LobbyManager : MonoBehaviour
     /// The canvas of lobby
     /// </summary>
     public LobbyCanvasManager canvas;
+
+    /// <summary>
+    /// The prefab of players manager for main scene
+    /// </summary>
+    public GameObject PlayersManager;
+
+    /// <summary>
+    /// The player prefab
+    /// </summary>
+    public GameObject Player;
 
     /// <summary>
     /// Taboo list of already pressed A buttons
@@ -80,14 +91,14 @@ public class LobbyManager : MonoBehaviour
                 TakeNextFreeSlot(4);
             }
         }
-        else if (Input.GetButtonDown("Start_Button_1")
+        else if ((Input.GetButtonDown("Start_Button_1")
                 || Input.GetButtonDown("Start_Button_2")
                 || Input.GetButtonDown("Start_Button_3")
                 || Input.GetButtonDown("Start_Button_4")
-                || Input.GetKeyDown(KeyCode.Return)
-                || nextFreeSlot > 1)
+                || Input.GetKeyDown(KeyCode.Return))
+                && nextFreeSlot > 1)
         {
-
+            StartGame();
         }
 
 
@@ -120,7 +131,22 @@ public class LobbyManager : MonoBehaviour
         }
 
         canvas.NewPlayer(nextFreeSlot);
-        
+
         nextFreeSlot++;
+    }
+
+    /// <summary>
+    /// Launch the game
+    /// </summary>
+    private void StartGame()
+    {
+        foreach (var item in OrderOfPad)
+        {
+            Instantiate(Player).GetComponent<PlayerControler>().SetUp(item);
+        }
+
+        Instantiate(PlayersManager).GetComponent<PlayersManager>().SetOrderOfPlayer(OrderOfPad);
+
+        SceneManager.LoadScene(2);
     }
 }
