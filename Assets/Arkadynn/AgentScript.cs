@@ -10,6 +10,7 @@ public class AgentScript : MonoBehaviour {
     public Vector3 defaultTarget = new Vector3(1, 0, -0.5f);
 
     private bool yummyFood = false;
+    private int currentAlertLevel = 0;
     private Transform yummyPosition;
 
 
@@ -32,11 +33,12 @@ public class AgentScript : MonoBehaviour {
         }
     }
 
-    public void NotifyYummy (Transform target) {
-        if (yummyFood)
+    public void NotifyYummy (Transform target, int alertLevel) {
+        if (yummyFood && currentAlertLevel > alertLevel)
             return;
 
         yummyFood = true;
+        currentAlertLevel = alertLevel;
         yummyPosition = target;
     }
 }
