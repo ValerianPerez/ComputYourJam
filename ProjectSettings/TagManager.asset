@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Battery
   - Zombie
+  - PressA
+  - PlayerDisplay
+  - PressAOrSpace
   layers:
   - Default
   - TransparentFX
