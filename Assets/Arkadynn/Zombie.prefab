@@ -23,10 +23,10 @@ GameObject:
   - component: {fileID: 23443070962168676}
   - component: {fileID: 65261468195751338}
   - component: {fileID: 195154478711350458}
-  - component: {fileID: 114706343530935500}
+  - component: {fileID: 114093836027811120}
   m_Layer: 0
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114706343530935500
+--- !u!114 &114093836027811120
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1085444541786220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a9d56fb5600544588448ab0e321e58, type: 3}
+  m_Script: {fileID: 11500000, guid: 7553c8eada4409c449ba960cef8bd82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTarget: {x: 1, y: 0, z: -0.5}
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f79a728ec1512af41b43a94fe447c5b6, type: 2}
+  - {fileID: 2100000, guid: 38027c66cf82547458cca33065558e46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 77c3e2b8cfba6824c8139cada6b4934b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2414ea5b60cf22438fa009ae895c926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
