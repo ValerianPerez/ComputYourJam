@@ -13,6 +13,10 @@ public class AgentScript : MonoBehaviour {
     private int currentAlertLevel = 0;
     private Transform yummyPosition;
 
+    public float attackSpeed = 1;
+    private float attackTimer = 0;
+    private bool hasAttacked = false;
+    
 
     // Use this for initialization
     void Start () {
@@ -30,6 +34,27 @@ public class AgentScript : MonoBehaviour {
 
         if (yummyFood && yummyPosition != null) {
             agent.SetDestination(new Vector3(yummyPosition.position.x, 0, yummyPosition.position.z));
+
+            if (hasAttacked) {
+                attackTimer += Time.deltaTime;
+                if (attackTimer > attackSpeed) {
+                    attackTimer = 0;
+                    hasAttacked = false;
+                }
+                return;
+            }
+
+            Ray ray = new Ray(new Vector3(transform.position.x, 4, transform.position.z), transform.forward);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, .25f)) {
+
+                if (hit.transform.Equals(yummyPosition)) {
+                    yummyPosition.GetComponent<ZombieAlerter>().TakeAHit(10);
+                    hasAttacked = true;
+                }
+            }
         }
     }
 
