@@ -11,6 +11,11 @@ public class PlayersManager : MonoBehaviour
     public GameObject player;
 
     /// <summary>
+    /// The Cameras prefab
+    /// </summary>
+    private GameObject Cameras;
+
+    /// <summary>
     /// The instance for singleton design pattern
     /// </summary>
     private static PlayersManager instance = null;
@@ -33,10 +38,12 @@ public class PlayersManager : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-
+        
+        int i = 1;
         foreach (var item in orderOfPlayer)
         {
-            Instantiate(player).GetComponent<PlayerControler>().SetUp(item, orderOfPlayer.Count);
+            Instantiate(player).GetComponent<PlayerControler>().SetUp(item, orderOfPlayer.Count, i);
+            ++i;
         }
     }
 
@@ -46,5 +53,12 @@ public class PlayersManager : MonoBehaviour
     public void SetOrderOfPlayer(List<int> order)
     {
         orderOfPlayer = order;
+    }
+
+    /// <summary>
+    /// Define the cameras' prefab
+    /// </summary>
+    public void SetCameras(GameObject Cameras) {
+        this.Cameras = Cameras;
     }
 }

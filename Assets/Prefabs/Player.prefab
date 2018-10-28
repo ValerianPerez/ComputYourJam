@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b033c84ee662fec4c8cba19d20319ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 1293897299580098, guid: c914c82d79dba644b92e3aae4ba7b4ca, type: 2}
+  playerSprite: {fileID: 1675605948362836}
   Speed: 5
   Sensitivity: 5
   isKeyboard: 0

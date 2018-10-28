@@ -2,9 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerControler : MonoBehaviour
 {
+    /// <summary>
+    /// The camera prefab
+    /// </summary>
+    public GameObject Camera;
+
+    /// <summary>
+    /// moving part of the player
+    /// </summary>
+    public GameObject playerSprite;
+
+    /// <summary>
+    /// private reference to the camera following the player
+    /// </summary>
+    private Camera cam;
+    
     /// <summary>
     /// The move speed
     /// </summary>
@@ -154,7 +170,7 @@ public class PlayerControler : MonoBehaviour
     /// The class for set-up the pad
     /// </summary>
     /// <param name="padNumber">The pad number</param>
-    public PlayerControler SetUp(int padNumber, int nbPlayer)
+    public PlayerControler SetUp(int padNumber, int nbPlayer, int playerNumber)
     {
         if (padNumber < 0 || padNumber > 4)
         {
@@ -178,6 +194,46 @@ public class PlayerControler : MonoBehaviour
             aButton += padNumber;
             bButton += padNumber;
         }
+        
+        GameObject cam_go = Instantiate(Camera);
+        DontDestroyOnLoad(cam_go);
+        cam = cam_go.GetComponentInChildren<Camera>();
+        CinemachineVirtualCamera cvc = cam_go.GetComponentInChildren<CinemachineVirtualCamera>();
+        cvc.Follow = playerSprite.transform;
+        cvc.LookAt = playerSprite.transform;
+
+        switch (nbPlayer) {
+            case 1:
+                cam.rect = new Rect(0, 0, 1, 1);
+                break;
+            case 2:
+                if (playerNumber == 1) {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0.5f, 1, .5f);
+                } else {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0, 1, .5f);
+                }
+                break;
+            case 3:
+                if (playerNumber == 1) {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0.5f, .5f, .5f);
+                } else if (playerNumber == 2) {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0.5f, .5f, .5f);
+                } else {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.25f, 0, .5f, .5f);
+                }
+                break;
+            case 4:
+                if (playerNumber == 1) {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0.5f, .5f, .5f);
+                } else if (playerNumber == 2) {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0.5f, .5f, .5f);
+                } else if (playerNumber == 3) {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0, .5f, .5f);
+                } else {
+                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0, .5f, .5f);
+                }
+                break;
+        }
 
         return this;
     }
@@ -189,7 +245,7 @@ public class PlayerControler : MonoBehaviour
     private Vector3 GetKeyboardTargetPostion()
     {
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition = cam.ScreenToWorldPoint(mousePosition);
         mousePosition = new Vector3(mousePosition.x, mousePosition.z, 0);
         return mousePosition;
     }
