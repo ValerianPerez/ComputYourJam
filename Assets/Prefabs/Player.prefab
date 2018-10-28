@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1293897299580098, guid: c914c82d79dba644b92e3aae4ba7b4ca, type: 2}
-  playerSprite: {fileID: 1675605948362836}
+  playerSprite: {fileID: 1950737696246848}
   Speed: 5
   Sensitivity: 5
   isKeyboard: 0

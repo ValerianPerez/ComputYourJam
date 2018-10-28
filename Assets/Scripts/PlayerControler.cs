@@ -273,6 +273,7 @@ public class PlayerControler : MonoBehaviour
         switch(playerNumber) {
             case 1:
                 cam.cullingMask += 1 << 9;
+                cam.gameObject.layer = 9;
                 cvc.gameObject.layer = 9;
                 break;
             case 2:
