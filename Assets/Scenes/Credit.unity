@@ -233,8 +233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Credits\n\nDeveloppeurs :\n\n\tAnadithorion\n\tArkadynn\n\tPhenix\n\tYujji\n\nMusiques
-    de :\n\n\tHebusw\n\tManzaxHell"
+  m_Text: "Credits\n\nDeveloppers \n\nAnadithorion\nArkadynn\nPhenix\nYujji\n\nMusics\n\nHebusw\nManzaxHell"
 --- !u!222 &331551890
 CanvasRenderer:
   m_ObjectHideFlags: 0
