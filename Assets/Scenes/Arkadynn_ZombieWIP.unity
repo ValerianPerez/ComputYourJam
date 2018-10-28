@@ -2673,6 +2673,7 @@ GameObject:
   - component: {fileID: 1325626637}
   - component: {fileID: 1325626636}
   - component: {fileID: 1325626635}
+  - component: {fileID: 1325626669}
   m_Layer: 0
   m_Name: Colliders_wall
   m_TagString: Untagged
@@ -3101,6 +3102,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00829289, y: 0.1106729, z: 1}
   m_Center: {x: 0.14300294, y: -0.0824336, z: -3.277279e-14}
+--- !u!65 &1325626669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1325626633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009544597, y: 0.15678635, z: 1}
+  m_Center: {x: 0.3956935, y: -0.16871868, z: -6.973264e-14}
 --- !u!1 &1348202257
 GameObject:
   m_ObjectHideFlags: 0
