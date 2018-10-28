@@ -202,35 +202,54 @@ public class PlayerControler : MonoBehaviour
         cvc.Follow = playerSprite.transform;
         cvc.LookAt = playerSprite.transform;
 
+        switch(playerNumber) {
+            case 1:
+                cam.cullingMask += 1 << 9;
+                cvc.gameObject.layer = 9;
+                break;
+            case 2:
+                cam.cullingMask += 1 << 10;
+                cvc.gameObject.layer = 10;
+                break;
+            case 3:
+                cam.cullingMask += 1 << 11;
+                cvc.gameObject.layer = 11;
+                break;
+            case 4:
+                cam.cullingMask += 1 << 12;
+                cvc.gameObject.layer = 12;
+                break;
+        }
+
         switch (nbPlayer) {
             case 1:
                 cam.rect = new Rect(0, 0, 1, 1);
                 break;
             case 2:
                 if (playerNumber == 1) {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0.5f, 1, .5f);
+                    cam.rect = new Rect(0, 0.5f, 1, .5f);
                 } else {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0, 1, .5f);
+                    cam.rect = new Rect(0, 0, 1, .5f);
                 }
                 break;
             case 3:
                 if (playerNumber == 1) {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0.5f, .5f, .5f);
+                    cam.rect = new Rect(0, 0.5f, .5f, .5f);
                 } else if (playerNumber == 2) {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0.5f, .5f, .5f);
+                    cam.rect = new Rect(0.5f, 0.5f, .5f, .5f);
                 } else {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.25f, 0, .5f, .5f);
+                    cam.rect = new Rect(0.25f, 0, .5f, .5f);
                 }
                 break;
             case 4:
                 if (playerNumber == 1) {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0.5f, .5f, .5f);
+                    cam.rect = new Rect(0, 0.5f, .5f, .5f);
                 } else if (playerNumber == 2) {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0.5f, .5f, .5f);
+                    cam.rect = new Rect(0.5f, 0.5f, .5f, .5f);
                 } else if (playerNumber == 3) {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0, 0, .5f, .5f);
+                    cam.rect = new Rect(0, 0, .5f, .5f);
                 } else {
-                    cam_go.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0, .5f, .5f);
+                    cam.rect = new Rect(0.5f, 0, .5f, .5f);
                 }
                 break;
         }
