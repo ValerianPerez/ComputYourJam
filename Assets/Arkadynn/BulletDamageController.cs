@@ -1,0 +1,18 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BulletDamageController : MonoBehaviour {
+    
+    /// <summary>
+    /// the damage of the bullet
+    /// </summary>
+    public int damage = 10;
+
+    void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Zombie")) {
+            other.GetComponent<ZombieHitPoint>().TakeAHit(damage);
+            Destroy(gameObject);
+        }
+    }
+}
