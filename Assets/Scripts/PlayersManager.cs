@@ -26,6 +26,7 @@ public class PlayersManager : MonoBehaviour
     /// </summary>
     private List<int> orderOfPlayer;
 
+    [SerializeField]
     private List<GameObject> players;
 
     // Use this for initialization
@@ -53,9 +54,16 @@ public class PlayersManager : MonoBehaviour
 
     void Update()
     {
-        if (players.Capacity == 0)
+        bool someoneIsAlive = false;
+        foreach (var item in players)
         {
-            SceneManager.LoadScene(3);
+            someoneIsAlive |= item.activeSelf;
+        }
+
+        if (!someoneIsAlive)
+        {
+            SceneManager.LoadScene(2);
+            Destroy(gameObject);
         }
     }
 

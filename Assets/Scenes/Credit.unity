@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 129126436}
   - component: {fileID: 129126437}
   - component: {fileID: 129126438}
+  - component: {fileID: 129126439}
   m_Layer: 5
   m_Name: Credit
   m_TagString: Untagged
@@ -178,7 +179,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d04ff751b15f9ed4e827964c027dd982, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.07
+  m_Volume: 0.534
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -262,6 +263,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &129126439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129126435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba66e8078719424b86d99517326eee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &331551887
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +341,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Credits\n\nDeveloppers \n\nAnadithorion\nArkadynn\nPhenix\nYujji\n\nMusics\n\nHebusw\nManzaxHell"
+  m_Text: "Credits\n\nDeveloppers \n\nBenjamin \"Yujji\" Chianese\nQuentin \"Arkadynn\"
+    Deputier\nVal\xE9rian \"Anadithorion\" Perez\nValenttin \"Phenix\" Tran\n\nMusics
+    & Sound Design\n\nFlorian \"Hebusw\" Maurel\nAxel \"ManzaxHell\" Manzano"
 --- !u!222 &331551890
 CanvasRenderer:
   m_ObjectHideFlags: 0

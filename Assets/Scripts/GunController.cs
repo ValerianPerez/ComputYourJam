@@ -44,6 +44,7 @@ public class GunController : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
+            GetComponent<AudioSource>().Play();
             nextFire = Time.time + FireRate;
             BulletController bullet = Instantiate(Bullet, FirePoint.position, transform.rotation).GetComponent<BulletController>();
             bullet.SetUp(FirePoint.up, FirePoint.position, transform.localRotation);

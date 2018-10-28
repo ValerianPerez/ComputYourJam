@@ -143,6 +143,6 @@ public class LobbyManager : MonoBehaviour
         PlayersManager playerManager = Instantiate(PlayersManager).GetComponent<PlayersManager>();
         playerManager.SetOrderOfPlayer(OrderOfPad);
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }
