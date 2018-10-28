@@ -9,6 +9,7 @@ TagManager:
   - PressA
   - PlayerDisplay
   - PressAOrSpace
+  - Bullet
   layers:
   - Default
   - TransparentFX
