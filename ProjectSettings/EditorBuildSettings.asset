@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arkadynn_ZombieWIP.unity
     guid: 7b9cb61c8e42f304da410f0a240fb421
+  - enabled: 1
+    path: Assets/Scenes/Credit.unity
+    guid: 1e551ee194c92784580cc58b7e6f567f
   m_configObjects: {}
