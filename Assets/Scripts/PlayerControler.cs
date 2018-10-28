@@ -186,20 +186,16 @@ public class PlayerControler : MonoBehaviour
         Gun.transform.localRotation = Quaternion.Euler(0, 0, angle);
 
         float gunAngle = Gun.transform.localRotation.eulerAngles.z;
-        Debug.Log(gunAngle);
 
 
         //Flip the gun on Y Axis
         if (0 < gunAngle && gunAngle <= 90 || 270 < gunAngle && gunAngle <= 360)
         {
             gunRenderer.flipY = false;
-            Debug.Log(gunRenderer.flipY);
         }
         else
         {
             gunRenderer.flipY = true;
-            Debug.Log(gunRenderer.flipY);
-
         }
 
         //Gun is hide by the character head
