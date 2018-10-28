@@ -91,6 +91,24 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     private PlayerControler instance;
 
+    /// <summary>
+    /// The animator of character sprite
+    /// </summary>
+    [SerializeField]
+    private Animator characterAnimator;
+
+    /// <summary>
+    /// The renderer of character sprite
+    /// </summary>
+    [SerializeField]
+    private SpriteRenderer characterRenderer;
+
+    /// <summary>
+    /// The gun renderer
+    /// </summary>
+    [SerializeField]
+    private SpriteRenderer gunRenderer;
+
     void Start()
     {
         if (instance == null)
@@ -123,6 +141,30 @@ public class PlayerControler : MonoBehaviour
             y = Input.GetAxis(leftStickY);
         }
 
+        //Define animation
+        Vector2 movment = new Vector2(x, y);
+        float angle_dir = Vector2.SignedAngle(movment, Vector2.up);
+
+        if (movment == Vector2.zero)
+        {
+            characterAnimator.SetBool("isRunning", false);
+            characterRenderer.flipX = false;
+        }
+        else
+        {
+            characterAnimator.SetBool("isRunning", true);
+
+            if (0 < angle_dir && angle_dir < 180)
+            {
+                characterRenderer.flipX = false;
+            }
+            else
+            {
+                characterRenderer.flipX = true;
+            }
+        }
+
+
         //Assign movment
         Vector3 move = new Vector3(x, y, 0) * Speed;
         PlayerSprite.localPosition += move * Time.deltaTime;
@@ -141,8 +183,34 @@ public class PlayerControler : MonoBehaviour
         Vector3 dir = move - PlayerSprite.localPosition;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         //Assign rotation
-        Gun.position = PlayerSprite.position;
-        Gun.transform.localRotation = Quaternion.Euler(0, 0, angle - 90);
+        Gun.transform.localRotation = Quaternion.Euler(0, 0, angle);
+
+        float gunAngle = Gun.transform.localRotation.eulerAngles.z;
+        Debug.Log(gunAngle);
+
+
+        //Flip the gun on Y Axis
+        if (0 < gunAngle && gunAngle <= 90 || 270 < gunAngle && gunAngle <= 360)
+        {
+            gunRenderer.flipY = false;
+            Debug.Log(gunRenderer.flipY);
+        }
+        else
+        {
+            gunRenderer.flipY = true;
+            Debug.Log(gunRenderer.flipY);
+
+        }
+
+        //Gun is hide by the character head
+        if (0 < gunAngle && gunAngle < 180)
+        {
+            gunRenderer.sortingOrder = 2;
+        }
+        else
+        {
+            gunRenderer.sortingOrder = 4;
+        }
 
         if (isKeyboard)
         {
