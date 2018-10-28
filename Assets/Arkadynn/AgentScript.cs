@@ -12,6 +12,9 @@ public class AgentScript : MonoBehaviour {
     private bool yummyFood = false;
     private int currentAlertLevel = 0;
     private Transform yummyPosition;
+    public bool isDead = false;
+
+    public Animator anim;
 
     //private bool hasRecentlyChangedTarget = false;
     //public float targetChangingSpeed = 10;
@@ -30,6 +33,12 @@ public class AgentScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (isDead)
+        {
+            agent.enabled = false;
+            return;
+        }
+
         if (!yummyFood)
             agent.SetDestination(new Vector3(1, 0, -0.5f));
 
@@ -51,12 +60,14 @@ public class AgentScript : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit, range)) {
                     if (!hit.collider.CompareTag("Zombie") && hit.transform.Equals(yummyPosition)) {
                         hit.collider.gameObject.GetComponent<ZombieAlerter>().TakeAHit(damage);
+                        anim.SetTrigger("attack");
                     }
                 }
 
             }
 
         }
+        transform.rotation = Quaternion.identity;
     }
 
     public void NotifyYummy (Transform target, int alertLevel) {

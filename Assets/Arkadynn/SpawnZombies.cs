@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnZombies : MonoBehaviour {
 
     public Transform[] spawnPoints;
-    public GameObject zombie;
+    public GameObject[] zombies;
 
     private int[] quantities;
     private float[] delays;
@@ -55,7 +55,7 @@ public class SpawnZombies : MonoBehaviour {
             quantities[i] -= qty;
 
             for(int j = 0; j < qty; ++j) {
-                Instantiate(zombie, spawnPoints[i].position, Quaternion.Euler(new Vector3(90, 0, 0)));
+                Instantiate(zombies[Random.Range(0,zombies.Length)], spawnPoints[i].position, Quaternion.Euler(new Vector3(90, 0, 0)));
             }
 
             timer = Time.deltaTime;

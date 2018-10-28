@@ -3295,7 +3295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1354965003
 Transform:
   m_ObjectHideFlags: 0
@@ -3329,7 +3329,9 @@ MonoBehaviour:
   - {fileID: 1874651612}
   - {fileID: 1301454132}
   - {fileID: 2110875072}
-  zombie: {fileID: 1085444541786220, guid: 07afff3fb5563084ca3377b61be49856, type: 2}
+  zombies:
+  - {fileID: 1465683185687880, guid: be884b7fd1957144498ced898f5c3139, type: 2}
+  - {fileID: 1429366623470784, guid: be284aca6663cbf48885f2c80ddfe473, type: 2}
 --- !u!1 &1362610817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,12 +3822,12 @@ Prefab:
         type: 2}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 2056066249}
+      objectReference: {fileID: 0}
     - target: {fileID: 114732322352839988, guid: c914c82d79dba644b92e3aae4ba7b4ca,
         type: 2}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 2056066249}
+      objectReference: {fileID: 0}
     - target: {fileID: 1293897299580098, guid: c914c82d79dba644b92e3aae4ba7b4ca, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -3981,7 +3983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertLevel: 2
   hitPoints: 20
-  rootObject: {fileID: 0}
+  rootObject: {fileID: 797749343}
 --- !u!135 &1647728054
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4607,11 +4609,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f323a96dc821ed4db85cf4a480da3f2, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &2056066249 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4600665488602684, guid: 6f323a96dc821ed4db85cf4a480da3f2,
-    type: 2}
-  m_PrefabInternal: {fileID: 2056066248}
 --- !u!1 &2110875071
 GameObject:
   m_ObjectHideFlags: 0

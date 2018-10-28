@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayersManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class PlayersManager : MonoBehaviour
     /// </summary>
     private List<int> orderOfPlayer;
 
+    private List<GameObject> players;
+
     // Use this for initialization
     void Start()
     {
@@ -38,12 +41,21 @@ public class PlayersManager : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        
-        int i = 1;
-        foreach (var item in orderOfPlayer)
+
+        players = new List<GameObject>();
+
+        for (int i = 0; i < orderOfPlayer.Count; i++)
         {
-            Instantiate(player).GetComponent<PlayerControler>().SetUp(item, orderOfPlayer.Count, i);
-            ++i;
+            players.Add(Instantiate(player));
+            players[i].GetComponent<PlayerControler>().SetUp(orderOfPlayer[i], orderOfPlayer.Count, i);
+        }
+    }
+
+    void Update()
+    {
+        if (players.Capacity == 0)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
@@ -58,7 +70,8 @@ public class PlayersManager : MonoBehaviour
     /// <summary>
     /// Define the cameras' prefab
     /// </summary>
-    public void SetCameras(GameObject Cameras) {
+    public void SetCameras(GameObject Cameras)
+    {
         this.Cameras = Cameras;
     }
 }

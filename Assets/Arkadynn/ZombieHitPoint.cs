@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieHitPoint : MonoBehaviour {
-    
+
+    public Animator anim;
+
     public int hitPoint = 10;
     public GameObject rootObject;
 
@@ -15,7 +17,9 @@ public class ZombieHitPoint : MonoBehaviour {
     public void TakeAHit(int damage) {
         hitPoint -= damage;
         if (hitPoint <= 0) {
-            Destroy(rootObject);
+            anim.SetTrigger("dead");
+            transform.parent.GetComponent<AgentScript>().isDead = true;
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 }
