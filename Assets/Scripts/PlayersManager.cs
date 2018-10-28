@@ -48,7 +48,7 @@ public class PlayersManager : MonoBehaviour
         for (int i = 0; i < orderOfPlayer.Count; i++)
         {
             players.Add(Instantiate(player));
-            players[i].GetComponent<PlayerControler>().SetUp(orderOfPlayer[i], orderOfPlayer.Count, i);
+            players[i].GetComponent<PlayerControler>().SetUp(orderOfPlayer[i], orderOfPlayer.Count, i+1);
         }
     }
 
