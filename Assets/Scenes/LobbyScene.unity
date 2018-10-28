@@ -349,45 +349,15 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114743881011835488, guid: c0bb1462cfe1b494d89fe17383878426,
+    - target: {fileID: 114666044923794244, guid: c0bb1462cfe1b494d89fe17383878426,
         type: 2}
-      propertyPath: m_Text
-      value: "Press          or      \nto start"
-      objectReference: {fileID: 0}
-    - target: {fileID: 224034832692975830, guid: c0bb1462cfe1b494d89fe17383878426,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 69.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 114743881011835488, guid: c0bb1462cfe1b494d89fe17383878426,
-        type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224034832692975830, guid: c0bb1462cfe1b494d89fe17383878426,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224092631447631180, guid: c0bb1462cfe1b494d89fe17383878426,
+    - target: {fileID: 114666044923794244, guid: c0bb1462cfe1b494d89fe17383878426,
         type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224092631447631180, guid: c0bb1462cfe1b494d89fe17383878426,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 19.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 224568212797386108, guid: c0bb1462cfe1b494d89fe17383878426,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 102.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224568212797386108, guid: c0bb1462cfe1b494d89fe17383878426,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 19.6
+      propertyPath: m_PreserveAspect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0bb1462cfe1b494d89fe17383878426, type: 2}

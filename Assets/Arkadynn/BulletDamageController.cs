@@ -10,7 +10,6 @@ public class BulletDamageController : MonoBehaviour {
     public int damage = 10;
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("");
         if (other.CompareTag("Zombie")) {
             other.GetComponent<ZombieHitPoint>().TakeAHit(damage);
             Destroy(gameObject.transform.parent.gameObject);
