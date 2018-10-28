@@ -15,6 +15,11 @@ public class BulletController : MonoBehaviour
     public float Speed = 5;
 
     /// <summary>
+    /// The light of projectile
+    /// </summary>
+    public GameObject Light;
+
+    /// <summary>
     /// The direction of bullet
     /// </summary>
     private Vector3 direction;
@@ -33,14 +38,15 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.position += velocity * Time.deltaTime;
+        transform.Translate(velocity * Time.deltaTime);
     }
 
     /// <summary>
     /// Activate the bullet
     /// </summary>
-    public void SetUp(Vector3 direction)
+    public virtual void SetUp(Vector3 direction, Vector3 position, Quaternion rotation)
     {
         velocity = direction * Speed;
     }
+
 }

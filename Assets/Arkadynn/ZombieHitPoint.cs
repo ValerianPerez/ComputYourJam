@@ -14,9 +14,7 @@ public class ZombieHitPoint : MonoBehaviour {
 
     public void TakeAHit(int damage) {
         hitPoint -= damage;
-        Debug.Log("Zombie hit");
         if (hitPoint <= 0) {
-            Debug.Log("Zombie killed");
             Destroy(rootObject);
         }
     }

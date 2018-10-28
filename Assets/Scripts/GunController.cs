@@ -45,8 +45,8 @@ public class GunController : MonoBehaviour
         if (Time.time > nextFire)
         {
             nextFire = Time.time + FireRate;
-            BulletController bullet = Instantiate(Bullet, FirePoint.position, FirePoint.rotation).GetComponent<BulletController>();
-            bullet.SetUp(FirePoint.up);
+            BulletController bullet = Instantiate(Bullet, FirePoint.position, transform.rotation).GetComponent<BulletController>();
+            bullet.SetUp(FirePoint.up, FirePoint.position, transform.localRotation);
         }
     }
 }

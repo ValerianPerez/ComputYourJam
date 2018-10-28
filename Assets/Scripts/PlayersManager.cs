@@ -25,13 +25,11 @@ public class PlayersManager : MonoBehaviour
     {
         if (instance == null)
         {
-            Debug.Log("first");
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
         {
-            Debug.Log("reject");
             Destroy(this.gameObject);
             return;
         }

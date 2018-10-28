@@ -13,9 +13,9 @@ public class AgentScript : MonoBehaviour {
     private int currentAlertLevel = 0;
     private Transform yummyPosition;
 
-    private bool hasRecentlyChangedTarget = false;
-    public float targetChangingSpeed = 10;
-    private float targetChangingTimer = 0;
+    //private bool hasRecentlyChangedTarget = false;
+    //public float targetChangingSpeed = 10;
+    //private float targetChangingTimer = 0;
 
     private bool hasAttacked = false;
     public float attackSpeed = 1;
