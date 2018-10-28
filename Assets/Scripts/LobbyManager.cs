@@ -140,11 +140,6 @@ public class LobbyManager : MonoBehaviour
     /// </summary>
     private void StartGame()
     {
-        foreach (var item in OrderOfPad)
-        {
-            Instantiate(Player).GetComponent<PlayerControler>().SetUp(item);
-        }
-
         Instantiate(PlayersManager).GetComponent<PlayersManager>().SetOrderOfPlayer(OrderOfPad);
 
         SceneManager.LoadScene(2);
