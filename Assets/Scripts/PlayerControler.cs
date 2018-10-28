@@ -154,7 +154,7 @@ public class PlayerControler : MonoBehaviour
     /// The class for set-up the pad
     /// </summary>
     /// <param name="padNumber">The pad number</param>
-    public PlayerControler SetUp(int padNumber)
+    public PlayerControler SetUp(int padNumber, int nbPlayer)
     {
         if (padNumber < 0 || padNumber > 4)
         {

@@ -36,7 +36,7 @@ public class PlayersManager : MonoBehaviour
 
         foreach (var item in orderOfPlayer)
         {
-            Instantiate(player).GetComponent<PlayerControler>().SetUp(item);
+            Instantiate(player).GetComponent<PlayerControler>().SetUp(item, orderOfPlayer.Count);
         }
     }
 
