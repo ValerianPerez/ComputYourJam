@@ -20,7 +20,7 @@ public class LaserBulletController : BulletController {
     /// </summary>
     override public void SetUp(Vector3 direction, Vector3 position, Quaternion rotation)
     {
-        transform.rotation = Quaternion.Euler(0, -rotation.eulerAngles.z, 0);
+        transform.rotation = Quaternion.Euler(0, -rotation.eulerAngles.z + 90, 0);
         transform.position += new Vector3(0, 0.5f, 0);
     }
 }

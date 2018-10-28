@@ -67,5 +67,6 @@ public class LobbyCanvasManager : MonoBehaviour
         AOrSpaceDisplay[order].SetActive(false);
         ADisplay[order].SetActive(false);
         PlayerDisplay[order].SetActive(true);
+        Debug.Log(PlayerDisplay[order]);
     }
 }
