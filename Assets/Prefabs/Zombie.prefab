@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65261468195751338}
   - component: {fileID: 195154478711350458}
   - component: {fileID: 114093836027811120}
+  - component: {fileID: 114989788347246468}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -154,7 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTarget: {x: 1, y: 0, z: -0.5}
-  targetChangingSpeed: 10
   attackSpeed: 1
   damage: 10
   range: 0.05
@@ -171,6 +171,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoint: 10
   rootObject: {fileID: 1085444541786220}
+--- !u!114 &114989788347246468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085444541786220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ea9f4ff7426a048af92e58940d6607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: 10
+  rootObject: {fileID: 0}
 --- !u!195 &195154478711350458
 NavMeshAgent:
   m_ObjectHideFlags: 1

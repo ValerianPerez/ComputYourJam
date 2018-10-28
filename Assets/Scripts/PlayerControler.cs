@@ -130,7 +130,7 @@ public class PlayerControler : MonoBehaviour
 
         if (isKeyboard)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 isTriggerFire = true;
             }
